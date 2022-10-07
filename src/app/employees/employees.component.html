@@ -1,0 +1,11 @@
+<button (click)="openAddEmployeeModal()" class="addBtn">Add Employee</button>
+<app-add-employee
+  *ngIf="showAddEmployeeModal"
+  [departments]="departments"
+  (addEmployee)="addEmployee($event)"
+></app-add-employee>
+<!--Modal-->
+<app-employee-list
+  [employees]="employees"
+  (deleteEmployee)="deleteEmployee($event)"
+></app-employee-list>

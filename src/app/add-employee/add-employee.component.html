@@ -1,0 +1,46 @@
+<div class="form">
+  <form [formGroup]="addEmployeeForm" (ngSubmit)="emitAddEmployeeEvent()">
+    <h2>Add Employee</h2>
+
+    <div>
+      <label for="firstName">First Name: <span class="required">*</span></label>
+      <p *ngIf="firstNameIsEmpty">
+        First Name cannot be empty, cannot contain numbers/symbols and must be
+        longer than 2 characters
+      </p>
+      <input
+        #firstName
+        formControlName="firstName"
+        (input)="setFirstNameIsEmpty($event)"
+      />
+    </div>
+
+    <div>
+      <label for="lastName">Last Name: <span class="required">*</span></label>
+      <p *ngIf="lastNameIsEmpty">
+        Last Name cannot be empty, cannot contain numbers/symbols and must be
+        longer than 2 characters
+      </p>
+      <input
+        #lastName
+        formControlName="lastName"
+        (input)="setLastNameIsEmpty($event)"
+      />
+    </div>
+
+    <div>
+      <label for="department"
+        >Department: <span class="required">*</span></label
+      >
+      <select formControlName="department">
+        <ng-container *ngFor="let dept of departments">
+          <option [value]="dept">{{ dept }}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="!addEmployeeForm.valid">
+      Add Employee
+    </button>
+  </form>
+</div>
