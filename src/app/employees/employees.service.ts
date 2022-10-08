@@ -8,12 +8,12 @@ export class EmployeesService {
 
   staff: IEmployee[] = [];
 
-  me: IEmployee = {
-    firstName: 'Chukwudumebi',
-    lastName: 'Orji',
-    department: 'Intern',
-    id: 'CO0001',
-  };
+//   me: IEmployee = {
+//     firstName: 'Chukwudumebi',
+//     lastName: 'Orji',
+//     department: 'Intern',
+//     id: 'CO0001',
+//   };
 
   departments = [...departments];
 
@@ -56,12 +56,12 @@ export class EmployeesService {
     return this.departments;
   }
 
-  addMe() {
-    this.employees = [this.me, ...this.employees];
-    this.setLocalStorage();
-  }
+//   addMe() {
+//     this.employees = [this.me, ...this.employees];
+//     this.setLocalStorage();
+//   }
 
   constructor(private window: Window) {
-    this.addMe();
+//     this.addMe();
   }
 }
